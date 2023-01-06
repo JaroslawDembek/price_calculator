@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 public class PercentDiscountConfigRepositoryViaProps implements PercentDiscountConfigRepository {
 
   private final PercentDiscountProperties properties;
+
   @Override
   public Optional<BigDecimal> findByProductId(@NonNull UUID productId) {
     return Optional.ofNullable(properties.getProductDiscount().get(productId));

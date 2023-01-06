@@ -28,7 +28,7 @@ public class TotalPercentDiscountRule implements DiscountRule {
   public TotalPrice apply(DiscountRuleContext ctx) {
     var unitPrice = getUnitPrice(ctx.productId()).amount();
     var totalAmount = unitPrice.multiply(BigDecimal.valueOf(ctx.quantity()));
-    return new TotalPrice(totalAmount.multiply(getPercentDiscount(ctx)));
+    return new TotalPrice(totalAmount.multiply(BigDecimal.ONE.subtract(getPercentDiscount(ctx))));
   }
 
   private BigDecimal getPercentDiscount(DiscountRuleContext ctx) {

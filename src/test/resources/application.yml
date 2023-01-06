@@ -1,0 +1,20 @@
+percent:
+  defaultValue: 0.5
+  productDiscount:
+    2291c08e-99da-4d58-9a25-908ce039f9fd: 0.05
+    34423624-b441-4072-ac1a-709cdf25f94f: 0.1
+
+quantity:
+  perProduct:
+    2291c08e-99da-4d58-9a25-908ce039f9fd:
+      5: 0.05
+      10: 0.1
+      20: 0.3
+    34423624-b441-4072-ac1a-709cdf25f94f:
+      5: 0.1
+      10: 0.2
+      20: 0.6
+  perQuantity:
+    5: 0.01
+    10: 0.02
+    20: 0.03
