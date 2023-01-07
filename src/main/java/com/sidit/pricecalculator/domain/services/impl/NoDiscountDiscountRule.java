@@ -1,6 +1,6 @@
-package com.sidit.pricecalculator.domain.model.impl;
+package com.sidit.pricecalculator.domain.services.impl;
 
-import com.sidit.pricecalculator.domain.model.DiscountRule;
+import com.sidit.pricecalculator.domain.services.DiscountRule;
 import com.sidit.pricecalculator.domain.model.DiscountRuleContext;
 import com.sidit.pricecalculator.domain.model.TotalPrice;
 import com.sidit.pricecalculator.domain.model.UnitPrice;

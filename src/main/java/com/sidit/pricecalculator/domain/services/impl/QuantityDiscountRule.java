@@ -1,23 +1,24 @@
-package com.sidit.pricecalculator.domain.model.impl;
+package com.sidit.pricecalculator.domain.services.impl;
 
-import com.sidit.pricecalculator.domain.model.DiscountRule;
+import com.sidit.pricecalculator.domain.services.DiscountRule;
 import com.sidit.pricecalculator.domain.model.DiscountRuleContext;
 import com.sidit.pricecalculator.domain.model.TotalPrice;
 import com.sidit.pricecalculator.domain.model.UnitPrice;
-import com.sidit.pricecalculator.domain.repositories.PercentDiscountConfigRepository;
 import com.sidit.pricecalculator.domain.repositories.ProductRepository;
+import com.sidit.pricecalculator.domain.repositories.QuantityDiscountConfigRepository;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class TotalPercentDiscountRule implements DiscountRule {
+//I assume that discount is in percent. But could be in free units.
+public class QuantityDiscountRule implements DiscountRule {
 
   private final ProductRepository productRepository;
-  private final PercentDiscountConfigRepository percentDiscountConfigRepository;
+  private final QuantityDiscountConfigRepository quantityDiscountConfigRepository;
 
-  public TotalPercentDiscountRule(ProductRepository productRepository,
-      PercentDiscountConfigRepository percentDiscountConfigRepository) {
+  public QuantityDiscountRule(ProductRepository productRepository,
+      QuantityDiscountConfigRepository quantityDiscountConfigRepository) {
     this.productRepository = productRepository;
-    this.percentDiscountConfigRepository = percentDiscountConfigRepository;
+    this.quantityDiscountConfigRepository = quantityDiscountConfigRepository;
   }
 
   private UnitPrice getUnitPrice(UUID productId) {
@@ -33,8 +34,10 @@ public class TotalPercentDiscountRule implements DiscountRule {
 
   private BigDecimal getPercentDiscount(DiscountRuleContext ctx) {
     //Could be determined on any ctx value
-    //Simplification: value per product
-    return percentDiscountConfigRepository.findByProductId(ctx.productId())
-        .orElseGet(percentDiscountConfigRepository::getDefault);
+    //Simplification: value per product and quantity or per quantity
+    return quantityDiscountConfigRepository.findByProductIdAndQuantity(ctx.productId(), ctx.quantity())
+        .or(() -> quantityDiscountConfigRepository.getDefault(ctx.quantity()))
+        //No discount if not specified
+        .orElse(BigDecimal.ZERO);
   }
 }

@@ -1,11 +1,10 @@
 package com.sidit.pricecalculator.domain.services;
 
-import com.sidit.pricecalculator.domain.model.DiscountRule;
 import com.sidit.pricecalculator.domain.model.DiscountRuleContext;
 import com.sidit.pricecalculator.domain.model.TotalPrice;
-import com.sidit.pricecalculator.domain.model.impl.NoDiscountDiscountRule;
-import com.sidit.pricecalculator.domain.model.impl.QuantityDiscountRule;
-import com.sidit.pricecalculator.domain.model.impl.TotalPercentDiscountRule;
+import com.sidit.pricecalculator.domain.services.impl.NoDiscountDiscountRule;
+import com.sidit.pricecalculator.domain.services.impl.QuantityDiscountRule;
+import com.sidit.pricecalculator.domain.services.impl.TotalPercentDiscountRule;
 import com.sidit.pricecalculator.domain.repositories.PercentDiscountConfigRepository;
 import com.sidit.pricecalculator.domain.repositories.ProductRepository;
 import com.sidit.pricecalculator.domain.repositories.QuantityDiscountConfigRepository;
