@@ -1,3 +1,16 @@
 # Discount total price calculator.
-# You will need Java 17.
-# To play just use standard maven spells.
+
+To prepare docker image with application. Maven build is used inside:
+```
+docker build -t price-calculator .
+```
+
+To run application:
+```
+docker run -it price-calculator:latest
+```
+
+If you what to change configuration just modify:
+```
+src/main/resources/application.yml
+```
