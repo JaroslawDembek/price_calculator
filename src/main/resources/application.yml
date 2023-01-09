@@ -1,0 +1,8 @@
+percent:
+    defaultValue: 0.5
+
+quantity:
+    perQuantity:
+        5: 0.01
+        10: 0.02
+        20: 0.03

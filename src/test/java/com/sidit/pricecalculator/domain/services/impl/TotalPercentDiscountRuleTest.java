@@ -8,7 +8,7 @@ import com.sidit.pricecalculator.domain.model.MonetaryAmount;
 import com.sidit.pricecalculator.domain.model.Product;
 import com.sidit.pricecalculator.domain.model.UnitPrice;
 import com.sidit.pricecalculator.domain.repositories.PercentDiscountConfigRepository;
-import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryForTests;
+import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryImpl;
 import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.UUID;
@@ -36,7 +36,7 @@ public class TotalPercentDiscountRuleTest {
     }
   };
 
-  ProductRepositoryForTests productRepository = new ProductRepositoryForTests();
+  ProductRepositoryImpl productRepository = new ProductRepositoryImpl();
 
   @BeforeEach
   void reset() {

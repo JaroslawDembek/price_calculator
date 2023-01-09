@@ -7,7 +7,7 @@ import com.sidit.pricecalculator.domain.model.DiscountRuleContext;
 import com.sidit.pricecalculator.domain.model.MonetaryAmount;
 import com.sidit.pricecalculator.domain.model.Product;
 import com.sidit.pricecalculator.domain.model.UnitPrice;
-import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryForTests;
+import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryImpl;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.UUID;
@@ -18,7 +18,7 @@ public class NoDiscountDiscountRuleTest {
 
   static final UUID prodAId = UUID.fromString("2291c08e-99da-4d58-9a25-908ce039f9fd");
 
-  ProductRepositoryForTests productRepository = new ProductRepositoryForTests();
+  ProductRepositoryImpl productRepository = new ProductRepositoryImpl();
   NoDiscountDiscountRule rule = new NoDiscountDiscountRule(productRepository);
 
   @BeforeEach

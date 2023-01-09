@@ -7,10 +7,8 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import lombok.NonNull;
-import org.springframework.boot.test.context.TestComponent;
 
-@TestComponent
-public class ProductRepositoryForTests implements ProductRepository {
+public class ProductRepositoryImpl implements ProductRepository {
 
   private static final ConcurrentMap<UUID, Product> products = new ConcurrentHashMap<>();
 
@@ -23,7 +21,7 @@ public class ProductRepositoryForTests implements ProductRepository {
     return products.put(product.id(), product);
   }
 
-  public void clear(){
+  public void clear() {
     products.clear();
   }
 }

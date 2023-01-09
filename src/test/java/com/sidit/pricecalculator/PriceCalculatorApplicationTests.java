@@ -7,7 +7,7 @@ import com.sidit.pricecalculator.application.model.PriceCalculationResponse;
 import com.sidit.pricecalculator.domain.model.MonetaryAmount;
 import com.sidit.pricecalculator.domain.model.Product;
 import com.sidit.pricecalculator.domain.model.UnitPrice;
-import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryForTests;
+import com.sidit.pricecalculator.infrastructure.repositories.ProductRepositoryImpl;
 import java.math.BigDecimal;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,19 +16,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import(ProductRepositoryForTests.class)
 class PriceCalculatorApplicationTests {
 
   @LocalServerPort
   int port;
 
   @Autowired
-  ProductRepositoryForTests productRepositoryForTests;
+  ProductRepositoryImpl productRepositoryForTests;
 
   @BeforeEach
   void init() {
